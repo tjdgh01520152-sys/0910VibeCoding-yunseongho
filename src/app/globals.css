@@ -1,19 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #0a110c;
+  --foreground: #e6efe1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-karla);
+  --font-serif: var(--font-instrument-serif);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+a {
+  color: #a8c79a;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e6efe1;
+}
+
+.forest-gradient {
+  background: linear-gradient(180deg, #16281a 0%, #0e1a11 45%, #070d08 100%);
+}
+
+.forest-stripes-1 {
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(6, 12, 7, 0.9) 0px,
+    rgba(6, 12, 7, 0.9) 9px,
+    transparent 9px,
+    transparent 34px,
+    rgba(9, 17, 11, 0.75) 34px,
+    rgba(9, 17, 11, 0.75) 52px,
+    transparent 52px,
+    transparent 71px,
+    rgba(5, 10, 6, 0.85) 71px,
+    rgba(5, 10, 6, 0.85) 76px,
+    transparent 76px,
+    transparent 118px
+  );
+}
+
+.forest-stripes-2 {
+  opacity: 0.75;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(3, 7, 4, 0.95) 0px,
+    rgba(3, 7, 4, 0.95) 22px,
+    transparent 22px,
+    transparent 96px,
+    rgba(4, 9, 5, 0.9) 96px,
+    rgba(4, 9, 5, 0.9) 133px,
+    transparent 133px,
+    transparent 247px
+  );
+}
+
+.forest-glow {
+  background:
+    linear-gradient(180deg, rgba(150, 190, 140, 0.1) 0%, rgba(10, 17, 12, 0) 38%),
+    radial-gradient(120% 60% at 50% 8%, rgba(196, 222, 180, 0.16) 0%, rgba(10, 17, 12, 0) 60%);
+}
+
+.forest-vignette {
+  background: linear-gradient(
+    90deg,
+    rgba(4, 8, 5, 0.95) 0%,
+    rgba(4, 8, 5, 0) 22%,
+    rgba(4, 8, 5, 0) 78%,
+    rgba(4, 8, 5, 0.95) 100%
+  );
+}
+
+.forest-divider {
+  background: linear-gradient(
+    90deg,
+    rgba(143, 179, 126, 0.85) 0%,
+    rgba(143, 179, 126, 0.25) 45%,
+    rgba(143, 179, 126, 0) 100%
+  );
+}
+
+.forest-tag {
+  border: 1px solid rgba(143, 179, 126, 0.45);
+  background: rgba(143, 179, 126, 0.06);
+  color: #d3ded0;
+}
+
+.forest-link {
+  border: 1px solid rgba(230, 239, 225, 0.35);
+  color: #e6efe1;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.forest-link:hover {
+  background: #8fb37e;
+  border-color: #8fb37e;
+  color: #0a110c;
 }

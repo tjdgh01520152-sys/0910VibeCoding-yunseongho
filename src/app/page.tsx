@@ -5,77 +5,89 @@ const profile = profileData as Profile;
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-16">
-      <div className="max-w-2xl w-full space-y-12">
-        <section className="text-center space-y-3 border-b-4 border-red-600 pb-8">
-          <p className="text-red-600 font-bold tracking-[0.3em] text-sm uppercase">
-            Fighter Profile
-          </p>
-          <h1 className="text-5xl sm:text-6xl font-black uppercase tracking-tight">
-            {profile.name}
-          </h1>
-          <p className="text-gray-400 uppercase tracking-widest text-sm">
-            {profile.affiliation}
-          </p>
-        </section>
+    <main className="forest-gradient relative min-h-screen overflow-hidden">
+      <div className="forest-stripes-1 pointer-events-none absolute inset-0" />
+      <div className="forest-stripes-2 pointer-events-none absolute inset-0" />
+      <div className="forest-glow pointer-events-none absolute inset-0" />
+      <div className="forest-vignette pointer-events-none absolute inset-0" />
 
-        <section className="space-y-4">
-          <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
+      <div className="relative mx-auto max-w-[820px] px-8 pb-24 pt-[120px]">
+        <div className="mb-6 text-xs uppercase tracking-[0.42em] text-[#8fb37e]">
+          Profile
+        </div>
+
+        <h1 className="mb-4 text-balance font-serif text-[clamp(52px,11vw,108px)] font-normal leading-[0.95] tracking-[-0.01em] text-[#f2f7ef]">
+          {profile.name}
+        </h1>
+
+        <div className="text-[13px] uppercase tracking-[0.28em] text-[#7d9070]">
+          {profile.affiliation}
+        </div>
+
+        <div className="forest-divider mt-11 h-px" />
+
+        <section className="mt-14 flex max-w-[620px] flex-col gap-5">
+          <div className="text-[11px] uppercase tracking-[0.34em] text-[#8fb37e]">
             Bio
-          </h2>
-          <p className="text-gray-200 leading-relaxed">{profile.bio}</p>
-          <p className="text-gray-200 leading-relaxed">
-            <span className="text-white font-bold">{profile.project.name}</span>{" "}
-            — {profile.project.description}
+          </div>
+          <p className="text-pretty text-[17px] font-light leading-[1.85] text-[#c6d3bf]">
+            {profile.bio}
+          </p>
+          <p className="text-pretty text-[17px] font-light leading-[1.85] text-[#9fb097]">
+            진행한 프로젝트{" "}
+            <em className="font-serif text-[19px] italic text-[#dce7d6]">
+              {profile.project.name}
+            </em>{" "}
+            에 대한 소개 — {profile.project.description}
           </p>
         </section>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div className="space-y-3">
-            <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
-              관심사
-            </h2>
+        <div className="mt-16 grid gap-12 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
+          <section className="flex flex-col gap-[18px]">
+            <div className="text-[11px] uppercase tracking-[0.34em] text-[#8fb37e]">
+              Interests
+            </div>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((interest) => (
                 <span
                   key={interest}
-                  className="border border-red-600 text-white uppercase text-xs font-bold tracking-wide px-3 py-1"
+                  className="forest-tag rounded-full px-[14px] py-[7px] text-[13px]"
                 >
                   {interest}
                 </span>
               ))}
             </div>
-          </div>
+          </section>
 
-          <div className="space-y-3">
-            <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
-              취미
-            </h2>
+          <section className="flex flex-col gap-[18px]">
+            <div className="text-[11px] uppercase tracking-[0.34em] text-[#8fb37e]">
+              Hobbies
+            </div>
             <div className="flex flex-wrap gap-2">
               {profile.hobbies.map((hobby) => (
                 <span
                   key={hobby}
-                  className="border border-red-600 text-white uppercase text-xs font-bold tracking-wide px-3 py-1"
+                  className="forest-tag rounded-full px-[14px] py-[7px] text-[13px]"
                 >
                   {hobby}
                 </span>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
-        <section className="space-y-4">
-          <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
-            링크
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-3">
+        <section className="mt-[72px] flex flex-col gap-[18px]">
+          <div className="text-[11px] uppercase tracking-[0.34em] text-[#8fb37e]">
+            Links
+          </div>
+          <div className="flex flex-wrap gap-3">
             {profile.links.map((link) => (
               <a
                 key={link.label}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-white text-center uppercase font-bold tracking-widest px-6 py-3 transition-colors hover:bg-red-600 hover:border-red-600"
+                className="forest-link rounded-sm px-[26px] py-[13px] text-[13px] uppercase tracking-[0.16em]"
               >
                 {link.label}
               </a>
