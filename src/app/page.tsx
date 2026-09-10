@@ -5,28 +5,41 @@ const profile = profileData as Profile;
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
-      <div className="max-w-xl w-full space-y-10">
-        <section className="space-y-3">
-          <h1 className="text-3xl font-bold">{profile.name}</h1>
-          <p className="text-gray-600">{profile.affiliation}</p>
-          <p className="text-base leading-relaxed">{profile.bio}</p>
-          <p className="text-base leading-relaxed">
-            <span className="font-semibold">{profile.project.name}</span> —{" "}
-            {profile.project.description}
+    <main className="min-h-screen bg-black text-white flex flex-col items-center px-6 py-16">
+      <div className="max-w-2xl w-full space-y-12">
+        <section className="text-center space-y-3 border-b-4 border-red-600 pb-8">
+          <p className="text-red-600 font-bold tracking-[0.3em] text-sm uppercase">
+            Fighter Profile
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-black uppercase tracking-tight">
+            {profile.name}
+          </h1>
+          <p className="text-gray-400 uppercase tracking-widest text-sm">
+            {profile.affiliation}
           </p>
         </section>
 
         <section className="space-y-4">
-          <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-2">
+          <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
+            Bio
+          </h2>
+          <p className="text-gray-200 leading-relaxed">{profile.bio}</p>
+          <p className="text-gray-200 leading-relaxed">
+            <span className="text-white font-bold">{profile.project.name}</span>{" "}
+            — {profile.project.description}
+          </p>
+        </section>
+
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="space-y-3">
+            <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
               관심사
             </h2>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((interest) => (
                 <span
                   key={interest}
-                  className="inline-block rounded-full bg-gray-100 px-3 py-1 text-sm"
+                  className="border border-red-600 text-white uppercase text-xs font-bold tracking-wide px-3 py-1"
                 >
                   {interest}
                 </span>
@@ -34,15 +47,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-2">
+          <div className="space-y-3">
+            <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
               취미
             </h2>
             <div className="flex flex-wrap gap-2">
               {profile.hobbies.map((hobby) => (
                 <span
                   key={hobby}
-                  className="inline-block rounded-full bg-gray-100 px-3 py-1 text-sm"
+                  className="border border-red-600 text-white uppercase text-xs font-bold tracking-wide px-3 py-1"
                 >
                   {hobby}
                 </span>
@@ -51,24 +64,23 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-2">
+        <section className="space-y-4">
+          <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm border-l-4 border-red-600 pl-3">
             링크
           </h2>
-          <ul className="space-y-1">
+          <div className="flex flex-col sm:flex-row gap-3">
             {profile.links.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.url}
-                  className="underline hover:text-blue-600"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.label}
-                </a>
-              </li>
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-center uppercase font-bold tracking-widest px-6 py-3 transition-colors hover:bg-red-600 hover:border-red-600"
+              >
+                {link.label}
+              </a>
             ))}
-          </ul>
+          </div>
         </section>
       </div>
     </main>
