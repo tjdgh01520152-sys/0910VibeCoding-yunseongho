@@ -1,0 +1,15 @@
+{
+  "name": "윤성호",
+  "affiliation": "고려대학교 인공지능학과 재학",
+  "bio": "코딩과 새로운 기술에 관심이 많은 고려대학교 인공지능학과 학생입니다.",
+  "project": {
+    "name": "Cora for",
+    "description": "수강신청을 도와주는 챗봇 프로젝트"
+  },
+  "interests": ["코딩", "UFC", "게임"],
+  "hobbies": ["게임", "운동", "UFC 시청하기"],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/PLACEHOLDER" },
+    { "label": "Email", "url": "mailto:placeholder@example.com" }
+  ]
+}
